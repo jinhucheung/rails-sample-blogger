@@ -1,4 +1,3 @@
-# hello-world-blog
+# README
 
-<<Ruby on Rails Tutorial>> 
-
+## hello-world-blog
