@@ -1,5 +1,4 @@
 <<<<<<< HEAD
-<<<<<<< HEAD
 # hello-world-blog
 
 \<\<Ruby on Rails Tutorial\>\> 
@@ -9,11 +8,14 @@
 # README
 >>>>>>> parent of 17d5800... update-readme
 
+<<<<<<< HEAD
 =======
 # README
 
 <<<<<<< HEAD
 >>>>>>> parent of 17d5800... update-readme
+=======
+>>>>>>> parent of b9f95e1... revert
 ## hello-world-blog
 =======
 This README would normally document whatever steps are necessary to get the
