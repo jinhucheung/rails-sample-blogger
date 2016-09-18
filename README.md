@@ -1,3 +1,0 @@
-# README
-
-## hello-world-blog
