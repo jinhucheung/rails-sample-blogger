@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     #  debugger
     if @user.save
       log_in @user
+      remember @user
       flash[:success]="Welcome to the Sample App!"
       redirect_to @user
     else 

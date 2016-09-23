@@ -81,4 +81,9 @@ class UserTest < ActiveSupport::TestCase
     assert_equal test_email.downcase,@aUser.reload.email
   end
 
+  ## 
+  test "authenticated? should return false for a user with nil diget" do 
+    assert_not @aUser.authenticated?('')
+  end
+
 end
