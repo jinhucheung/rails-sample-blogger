@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       # 登陆成功
       log_in(@user)
       params[:session][:remember_me]=='1'?remember(@user):forget(@user)
-      redirect_to @user
+      redirect_back_or @user
     else 
       # 登陆失败
       flash.now[:danger]="Invalid email/password combination"

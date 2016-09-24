@@ -31,4 +31,13 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert is_logged_in?
     assert is_remembered?
   end
-end
+
+  test "invalid singup with password not equal password_confirmation" do 
+    get signup_path
+    assert_template 'users/new'
+    post users_path, params:{user:{name:"example",email:"example@exam.com",password:"test1234",password_confirmation:"test123"}}
+    assert_template 'users/new'
+    assert_select "div.alert"
+    end 
+  end
+

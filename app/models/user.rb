@@ -9,7 +9,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false  }
 
   has_secure_password
-  validates :password,presence:true,length:{ minimum:6 }
+  validates :password,presence:true,length:{ minimum:6 },allow_nil:true
 
   # 记忆令牌
   attr_accessor :remember_token
