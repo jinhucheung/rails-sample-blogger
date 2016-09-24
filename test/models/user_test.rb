@@ -83,7 +83,7 @@ class UserTest < ActiveSupport::TestCase
 
   ## 
   test "authenticated? should return false for a user with nil diget" do 
-    assert_not @aUser.authenticated?('')
+    assert_not @aUser.authenticated?(:remember,'')
   end
 
 end
