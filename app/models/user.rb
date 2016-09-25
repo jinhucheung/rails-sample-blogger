@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :password,presence:true,length:{ minimum:6 },allow_nil:true
 
   # 记忆令牌,激活令牌
-  attr_accessor :remember_token,:activation_token
+  attr_accessor :remember_token,:activation_token,:reset_token
 
   # 返回指定密码字符串的哈希
   def User.digest(string)
@@ -58,5 +58,20 @@ class User < ApplicationRecord
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
   end
+  
+  # 生成重设密码令牌及更新令牌摘要与时间
+  def create_reset_digest
+    self.reset_token=User.new_token
+    update_columns(reset_digest:User.digest(reset_token),reset_sent_at:Time.zone.now)
+  end
+  
+  # 发送重设密码邮件
+  def send_password_reset_email 
+    UserMailer.password_reset(self).deliver_now
+  end
 
+  # 如果密码重设请求过期,返回true
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
 end
