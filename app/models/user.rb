@@ -2,6 +2,8 @@ class User < ApplicationRecord
   before_save {email.downcase! }
   before_create :create_activation_digest
 
+  has_many :microposts, dependent: :destroy
+  
   validates :name , presence: true , length:{ maximum:50 }
 
   VALID_EMAIL_REGEX=/\A[\w\+\-\.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -73,5 +75,10 @@ class User < ApplicationRecord
   # 如果密码重设请求过期,返回true
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
+  end
+
+  # 实现动态流原型
+  def feed
+    Micropost.where("user_id=?",id)
   end
 end
