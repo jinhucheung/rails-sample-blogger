@@ -12,5 +12,6 @@ if Rails.env.production?
    config.qiniu_bucket_private= true #default is false
    config.qiniu_block_size    = 4*1024*102
    config.qiniu_protocol      = "http"
+   config.qiniu_up_host       = 'http://up.qiniug.com'
   end
 end
