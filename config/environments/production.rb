@@ -68,7 +68,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: host }
 
   ActionMailer::Base.smtp_settings = {
-    :address    => 'smtp.milog.xyz',
+    :address    => 'smtp.mxhichina.xyz',
     :port       => '587',
     :authentication => :plain,
     :user_name  => ENV['MILOG_USERNAME'],
